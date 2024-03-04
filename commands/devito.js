@@ -28,7 +28,7 @@ module.exports = {
         const devito_embed = new Discord.MessageEmbed()
             .setTitle('A wild Danny Devito appeared!')
             .setColor('#BE00BB')
-            .setDescription('Isnt it beautiful?')
+            .setDescription('Isnt he beautiful?')
             .setImage(devito_image);
 
         interaction.reply({ embeds: [devito_embed] })  
