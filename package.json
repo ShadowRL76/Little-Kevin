@@ -1,5 +1,5 @@
 {
-    "name": "Build-A-Bot",
+    "name": "build-a-bot",
     "description": "Top.gg Build-A-Bot Event",
     "version": "1.0",
     "main": "index.js",
