@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 
 module.exports = {
     name: 'devitoes',
-    description: "We dont kink shame",
+    description: "We dont kink shame.",
     async execute(interaction) {
 
         const devitoes_gifs = [
@@ -17,7 +17,24 @@ module.exports = {
             "https://memeguy.com/photos/images/my-sister-over-pronounced-the-to-in-danny-devito-and-it-gave-me-an-idea-388444.png",
             "https://i0.wp.com/criticaldispatches.com/wp-content/uploads/DannyDeVitoesPreview.png?fit=2006%2C1600&ssl=1",
             "https://i.kym-cdn.com/photos/images/original/002/057/734/d10.jpg",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQIiG58d9Su0V1lNa0VKr6xHPdsbxW2RgZ4A&s"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQIiG58d9Su0V1lNa0VKr6xHPdsbxW2RgZ4A&s",
+            "https://pics.wikifeet.com/Danny-DeVito-Feet-5067944.jpg",
+            "https://pics.wikifeet.com/Danny-DeVito-Feet-2934190.jpg",
+            "https://pics.wikifeet.com/Danny-DeVito-Feet-7261227.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_03.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_08.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_16.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_17.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_21.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_28.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_29.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_33.jpg",
+            "https://www.shutterstock.com/image-photo/18-august-2011-hollywood-california-260nw-83846326.jpg",
+            "https://s3.amazonaws.com/ebaumsworld.prod/uploads1657306635522-DfNKhc1U8AAVgE5.jpg",
+            "https://s3.amazonaws.com/ebaumsworld.prod/uploads1657305851494-DHn_qHtXcAArOkn.jpg",
+            "https://pbs.twimg.com/media/DVOHHsDUMAAaT7C?format=jpg&name=900x900",
+            "https://s3.amazonaws.com/ebaumsworld.prod/uploads1657306695928-E63Q_JmWEAEWcow.jpg",
+            "https://s3.amazonaws.com/ebaumsworld.prod/uploads1657306727453-E7qP5z8VoAA6TAw.jpg"
 
         ]
 

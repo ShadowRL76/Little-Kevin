@@ -1,9 +1,9 @@
 module.exports = {
     name: 'ping',
-    description: 'Ping Scoop Dogg!',
+    description: 'Check if Scoop Dogg is online!',
     async execute(interaction) {
 
-        interaction.reply("Why did you ping me? Rude.")
+        interaction.reply("Chizzle on the pizzle, my nizzle.")
 
     }
 
