@@ -31,16 +31,18 @@ module.exports = {
             "https://i.pinimg.com/736x/0e/a1/6e/0ea16e7c04f2118346f5ce0e89e50aa1.jpg",
             "https://m.media-amazon.com/images/M/MV5BNmU5MjA5ZDMtODA3NC00NmJlLWFlNmItNTEwMTZlNGVmYTQ3XkEyXkFqcGdeQXVyNDUxMDE3Mzk@._V1_.jpg",
             "https://i.pinimg.com/736x/4d/7c/b5/4d7cb52c448cfaf20b47411a76d90ac6.jpg",
-            "https://i.redd.it/dgod52p690921.jpg"
+            "https://i.redd.it/dgod52p690921.jpg",
+            "https://i.chzbgr.com/full/9423505664/h7DF6DDF4/person-halloween-costume-is-advertised-as-vs-put-on-at-home",
+            ""
         
         
         ]
 
         const devito_image = devito_gifs[Math.floor(Math.random() * devito_gifs.length)];
         const devito_embed = new Discord.MessageEmbed()
-            .setTitle('A wild Danny Devito appeared!')
-            .setColor('#BE00BB')
-            .setDescription('Isnt he beautiful?')
+            .setTitle('Fill me up with cream.')
+            .setColor('#CC66FF')
+            .setDescription('Turn me into cannoli.')
             .setImage(devito_image);
 
         interaction.reply({ embeds: [devito_embed] })  

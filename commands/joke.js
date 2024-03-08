@@ -22,7 +22,7 @@ module.exports = {
         "Did you know Danny DeVito has a cousin from the old west? Danny BanDito.",
         "Danny Devito walks into a bar. I lowered the bar just for this joke.",
         "What does Snoop Dogg say after performing a magic trick? Ta da da da da.",
-        "Snoop Dogg has come up with a plan to smoke weed even after he dies. He will be..rolling in his grave.",
+        "Snoop Dogg has come up with a plan to smoke weed even after he dies. He will be.. rolling in his grave.",
         "Why does Snoop Dogg carry an umbrella? Fo drizzle.",
         "Why did Snoop Dogg bring an umbrella? There was a Lil Wayne outside",
         "Why does Snoop Dogg use conditioner? Fo'frizzel.",
@@ -32,6 +32,17 @@ module.exports = {
         "What does Snoop Dogg keep in his backyard? His garden hoes.",
         "If Ice Cube and Snoop Dogg adopted a child... they could call it Slush Puppy.",
         "Why did the popsicle go to a psychiatrist? Because he had a meltdown.",
+        "What do rappers like to add to their coffee? Two pack sugar.",
+        "What do you call a rapper whose half black and half white? 50 percent.",
+        "Who is a sloths favorite rapper? Lay-Z.",
+        "What do you call a rapper that smells nice? Post Cologne.",
+        "What's the difference between a rapper and a country singer? Country singers keep their hoes in the shed.",
+        "Why do good rappers make bad farmers? Because they can only make sick beets.",
+        "What do you call a convention for lizard rappers? A reptile diss function.",
+        "What do you call a fish who raps? Swim Shady.",
+        
+
+
     
 
 

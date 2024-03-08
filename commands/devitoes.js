@@ -41,7 +41,7 @@ module.exports = {
         const devitoes_image = devitoes_gifs[Math.floor(Math.random() * devitoes_gifs.length)];
         const devitoes_embed = new Discord.MessageEmbed()
             .setTitle('Gotta Pay The Toe Toll!')
-            .setColor('#12F0E3')
+            .setColor('#009999')
             .setDescription('You like what you see?')
             .setImage(devitoes_image);
 
