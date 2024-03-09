@@ -26,7 +26,9 @@ module.exports = {
             "http://www.shutupandtakemymoney.com/wp-content/uploads/2020/06/big-ed-hair-spread-mayonaise-meme.jpg",
             "https://i.redd.it/p20bmnc07xs41.jpg",
             "https://i.redd.it/xqoz6bvri1s41.png",
+            "https://i.imgflip.com/4vy7p6.jpg",
             
+
 
 
 
