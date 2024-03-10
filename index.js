@@ -11,16 +11,8 @@ const token = process.env.DISCORD_TOKEN;
 const config = require('./config.json');
 
 // Create a new client instance
-const client = new Client({ 
-    intents: [
-        Intents.FLAGS.GUILDS,
-        Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.DIRECT_MESSAGES,
-        Intents.FLAGS.GUILD_PRESENCES, 
-        Intents.FLAGS.GUILD_MEMBERS
-    ]
+const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
-});
 // Load our commands
 client.commands = new Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -34,12 +26,12 @@ const commands = client.commands.map(({ execute, ...data }) => data);
 // Register slash commands
 const rest = new REST({ version: '9' }).setToken(token);
 console.log('Started refreshing slash commands...');
+// rest.put(
+//     Routes.applicationCommands(config.clientId), { body: commands },
+// );
 rest.put(
-Routes.applicationCommands(config.clientId), { body: commands },
+    Routes.applicationGuildCommands(config.clientId, config.guildId), { body: commands },
 );
-//rest.put(
-//Routes.applicationGuildCommands(config.clientId, config.guildId), { body: commands },
-//);
 console.log(`Successfully reloaded ${commands.length} slash commands!`);
 
 // When the client is ready, run this code (only once)
