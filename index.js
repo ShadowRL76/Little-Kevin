@@ -26,12 +26,12 @@ const commands = client.commands.map(({ execute, ...data }) => data);
 // Register slash commands
 const rest = new REST({ version: '9' }).setToken(token);
 console.log('Started refreshing slash commands...');
-// rest.put(
-//     Routes.applicationCommands(config.clientId), { body: commands },
-// );
-rest.put(
-    Routes.applicationGuildCommands(config.clientId, config.guildId), { body: commands },
+    rest.put(
+    Routes.applicationCommands(config.clientId), { body: commands },
 );
+//rest.put(
+//  Routes.applicationGuildCommands(config.clientId, config.guildId), { body: commands },
+//);
 console.log(`Successfully reloaded ${commands.length} slash commands!`);
 
 // When the client is ready, run this code (only once)
