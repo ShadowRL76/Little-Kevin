@@ -40,6 +40,7 @@ module.exports = {
         "Why do good rappers make bad farmers? Because they can only make sick beets.",
         "What do you call a convention for lizard rappers? A reptile diss function.",
         "What do you call a fish who raps? Swim Shady.",
+        "Why couldn't the green pepper practice archery? Because it didn't habinero."
         
 
 

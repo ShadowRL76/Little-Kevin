@@ -22,7 +22,7 @@ module.exports = {
             "https://pics.wikifeet.com/Danny-DeVito-Feet-2934190.jpg",
             "https://pics.wikifeet.com/Danny-DeVito-Feet-7261227.jpg",
             "https://cdn.acidcow.com/pics/20130417/danny_devito_03.jpg",
-            "https://cdn.acidcow.com/pics/20130417/danny_devito_08.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_08.jpg", 
             "https://cdn.acidcow.com/pics/20130417/danny_devito_16.jpg",
             "https://cdn.acidcow.com/pics/20130417/danny_devito_17.jpg",
             "https://cdn.acidcow.com/pics/20130417/danny_devito_21.jpg",
@@ -34,7 +34,25 @@ module.exports = {
             "https://s3.amazonaws.com/ebaumsworld.prod/uploads1657305851494-DHn_qHtXcAArOkn.jpg",
             "https://pbs.twimg.com/media/DVOHHsDUMAAaT7C?format=jpg&name=900x900",
             "https://s3.amazonaws.com/ebaumsworld.prod/uploads1657306695928-E63Q_JmWEAEWcow.jpg",
-            "https://s3.amazonaws.com/ebaumsworld.prod/uploads1657306727453-E7qP5z8VoAA6TAw.jpg"
+            "https://s3.amazonaws.com/ebaumsworld.prod/uploads1657306727453-E7qP5z8VoAA6TAw.jpg",
+            "https://tse3.mm.bing.net/th?id=OIP.BdYjoNipj14Cmb_IX6cVZQEsEq&pid=Api&P=0&h=220",
+            "https://tse2.mm.bing.net/th?id=OIP.-olZPPUqd3ZrBglsJopbEgHaEm&pid=Api&P=0&h=220",
+            "https://tse2.mm.bing.net/th?id=OIP.daLxlQ9ReRwpDN2Zsg7VowHaJ4&pid=Api&P=0&h=220",
+            "https://tse3.mm.bing.net/th?id=OIP.BELxf8sq5QIFbJysGVWVjgHaFj&pid=Api&P=0&h=220",
+            "https://s3.amazonaws.com/ebaumsworld.prod/uploads1657306802278-EydsdlHVgAACXJC.jpg",
+            "https://pbs.twimg.com/media/FU8gZhLVEAAkHOr?format=jpg&name=small",
+            "https://pbs.twimg.com/media/C04QHyvXgAAlpDy?format=jpg&name=900x900",
+            "https://s3.amazonaws.com/ebaumsworld.prod/uploads1657305851494-DHn_qHtXcAArOkn.jpg",
+            "https://pbs.twimg.com/media/DVOHHsDUMAAaT7C?format=jpg&name=900x900",
+            "https://pbs.twimg.com/media/EMafTgBUUAATE1K?format=jpg&name=small",
+            "https://pbs.twimg.com/media/CksxUc3UUAAmoNQ.jpg",
+            "https://tse3.mm.bing.net/th?id=OIP.hIKLf6GKqF_HJSObBH17HwEpEs&pid=Api&P=0&h=220",
+            "https://tse3.mm.bing.net/th?id=OIP.BL8v9x9pfrPPm6jq_8_FIAHaHa&pid=Api&P=0&h=220",
+            "https://tse2.mm.bing.net/th?id=OIP.Nm3evJVioExEuNEcLPkQvgHaFA&pid=Api&P=0&h=220",
+            "https://tse4.mm.bing.net/th?id=OIP.jWSsmlULAckghzO6XxC7RQHaHa&pid=Api&P=0&h=220",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_08.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_02.jpg",
+            "https://cdn.acidcow.com/pics/20130417/danny_devito_17.jpg"
 
         ]
 

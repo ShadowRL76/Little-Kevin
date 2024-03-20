@@ -7,8 +7,9 @@
         "start": "node index.js"
     },
     "dependencies": {
-        "discord.js": "*",
+        "@discordjs/builders": "^1.7.0",
         "@discordjs/rest": "*",
+        "discord.js": "*",
         "dotenv": "^16.0.0"
     },
     "engines": {
