@@ -53,7 +53,18 @@ client.on('interactionCreate', async interaction => {
         console.error(error);
         await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
     }
-});
+
+        const { commandName } = interaction;
+    
+        if (commandName === 'ping') {
+            await interaction.reply('Pong!');
+        } else if (commandName === 'server') {
+            await interaction.reply('Server info.');
+        } else if (commandName === 'user') {
+            await interaction.reply('User info.');
+        }
+    });
+
 
 // Login to Discord with your client's token
 client.login(token);

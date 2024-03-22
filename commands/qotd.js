@@ -10,7 +10,7 @@ module.exports = {
            //"https://iili.io/JWDpMFf.jpg",//Wizards
             //"https://iili.io/JWDpE6G.jpg",//Jurassic
             "https://iili.io/JWDp1Gs.jpg",//PhoneText
-            "https://iili.io/JWDp0nn.jpg",//WorstDate
+            //"https://iili.io/JWDp0nn.jpg",//WorstDate
             //"https://iili.io/JWDpcZX.jpg",//FittedSheet
             //"https://iili.io/JWDpajt.jpg"//Movie
         ]

@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 
 module.exports = {
     name: 'fruity',
-    description: 'Wiggle Kevin\'s worm.',
+    description: 'Hot potato, hot potato...',
     async execute(interaction) {
     
     const fruity_gifs = [
@@ -55,7 +55,7 @@ module.exports = {
         .setURL('https://thewiggles.com')
         .setThumbnail('https://iili.io/JXdcFje.png')
         .setImage(fruity_image)
-        .setFooter({text:'Let\'s Wiggle! Meow it\s time to party! '})
+        .setTimestamp()
         
 
 
