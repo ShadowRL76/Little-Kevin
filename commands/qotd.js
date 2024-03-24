@@ -7,12 +7,14 @@ module.exports = {
 
         const qotd_gifs = [
             "https://iili.io/JWDmfXn.jpg",//IceCream
-           //"https://iili.io/JWDpMFf.jpg",//Wizards
+            //"https://iili.io/JWDpMFf.jpg",//Wizards
             //"https://iili.io/JWDpE6G.jpg",//Jurassic
-            "https://iili.io/JWDp1Gs.jpg",//PhoneText
+            //"https://iili.io/JWDp1Gs.jpg",//PhoneText
             //"https://iili.io/JWDp0nn.jpg",//WorstDate
             //"https://iili.io/JWDpcZX.jpg",//FittedSheet
             //"https://iili.io/JWDpajt.jpg"//Movie
+            //"https://iili.io/JhIkGcu.jpg",//Vacation
+            "https://iili.io/JhIkW9j.jpg"//Money
         ]
 
         const qotd_image = qotd_gifs[Math.floor(Math.random() * qotd_gifs.length)];
@@ -24,15 +26,9 @@ module.exports = {
             .setDescription(':grey_question: Question Of The Day! :grey_question:')
             .setThumbnail('https://iili.io/JWDQnQj.png')
             .setImage(qotd_image)
-            .setFooter({text:'ScoopDogg | discord.gg/GEMBK386', iconURL:'https://i.imgur.com/XcCcxND.png'})
-    
-            
-            if (interaction.user.id === '518487265274494980') {
-                interaction.reply({ embeds: [qotd_embed] })      
-            
-            }
+            .setFooter({text:'ScoopDogg | discord.gg/GEMBK386', iconURL:'https://iili.io/Jh1PVgS.png'})
 
-            
+            interaction.reply({ embeds: [qotd_embed] })  
 
 
     }    
