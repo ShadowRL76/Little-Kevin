@@ -60,8 +60,12 @@ module.exports = {
         const devitoes_embed = new Discord.MessageEmbed()
             .setTitle('Gotta Pay The Toe Toll!')
             .setColor('#009999')
-            .setDescription('You like what you see?')
-            .setImage(devitoes_image);
+            .setDescription('Welcome to the Trollfoot California... :notes: :musical_note: ')
+            .setImage(devitoes_image)
+            .setThumbnail('https://iili.io/JhgmhNf.png')
+            .setURL('https://www.tmz.com/watch/0-cy3e0c4q/')
+            .setFooter({text:'ScoopDogg', iconURL:'https://iili.io/Jh1PVgS.png'})
+            .setTimestamp()
 
         interaction.reply({ embeds: [devitoes_embed] })  
     

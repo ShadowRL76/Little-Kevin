@@ -59,10 +59,15 @@ module.exports = {
 
         const devito_image = devito_gifs[Math.floor(Math.random() * devito_gifs.length)];
         const devito_embed = new Discord.MessageEmbed()
-            .setTitle('Fill me up with cream.')
+            .setTitle('So anyway, I started blasting...')
             .setColor('#CC66FF')
-            .setDescription('Turn me into cannoli.')
-            .setImage(devito_image);
+            .setDescription('Can I offer you a nice egg in this trying time?')
+            .setThumbnail('https://iili.io/JhgmXAG.png')
+            .setImage(devito_image)
+            .setURL('https://www.tiktok.com/@dannydevito.._?_t=8kvxmEJAJfh&_r=1')
+            .setFooter({text:'ScoopDogg', iconURL:'https://iili.io/Jh1PVgS.png'})
+            .setTimestamp()
+
 
         interaction.reply({ embeds: [devito_embed] })  
     

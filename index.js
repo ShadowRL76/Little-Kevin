@@ -55,11 +55,12 @@ client.on('interactionCreate', async interaction => {
     }
 
         const { commandName } = interaction;
-    
         if (commandName === 'server') {
             await interaction.reply('Server info.');
         } else if (commandName === 'user') {
             await interaction.reply('User info.');
+        } else if (commandName === 'ping') {
+            await interaction.reply('Chizzle on the pizzle, my nizzle.')
         }
     });
 

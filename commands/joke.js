@@ -43,11 +43,6 @@ module.exports = {
         "Why couldn't the green pepper practice archery? Because it didn't habinero."
         
 
-
-    
-
-
-
     ];
     const randomIndex = Math.floor(Math.random() * textArray.length); 
     const randomText = textArray[randomIndex];
