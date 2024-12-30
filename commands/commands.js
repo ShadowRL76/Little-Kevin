@@ -4,7 +4,7 @@ module.exports = [
         name: 'ping',
         description: 'Check if Scoop Dogg is online',
         async execute(interaction) {
-            await interaction.reply("Change on the pizzle, my nizzle.")
+            await interaction.reply("Little Kevin is sprouting proudly.");
         }
     },
     {
