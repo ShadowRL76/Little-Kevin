@@ -23,7 +23,7 @@ export default {
     });
    return interaction.followUp({ embeds: [embed] });
   } catch (err) {
-   client.errorMessages.internalError(interaction, err);
+   await client.errorMessages.internalError(interaction, err);
   }
  },
 };
