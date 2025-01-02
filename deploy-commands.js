@@ -1,22 +1,24 @@
-// deploy-commands.js
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { clientId, guildId, token } = require('./config.json');
-const commands = require('./commands/commands'); // Import the commands array from commands.js
 
-// Prepare commands for registration with Discord
-const commandData = commands.map(command =>
-	new SlashCommandBuilder()
-		.setName(command.name)
-		.setDescription(command.description)
-		.toJSON()
-);
+const commands = [
+	new SlashCommandBuilder().setName('ping').setDescription('Check to see if Little Kevin is online'),
+	new SlashCommandBuilder().setName('qotd').setDescription('Post Muusee\'s Question Of The Day'),
+	new SlashCommandBuilder().setName('fruity').setDescription('Hot potato, hot potato...'),
+	new SlashCommandBuilder().setName('joke').setDescription('Hear a funny jokesicle!'),
+	new SlashCommandBuilder().setName('snoop').setDescription('Get an inspirational quote from Snoop'),
+	new SlashCommandBuilder().setName('devito').setDescription('DevitHoes Rejoice!'),
+	new SlashCommandBuilder().setName('devitos').setDescription('We dont kink shame.'),
+	new SlashCommandBuilder().setName('ed').setDescription('Well, this is awkward.'),
+	new SlashCommandBuilder().setName('fact').setDescription('Expand your knowledge!'),
+]
+	.map(command => command.toJSON());
 
-// Initialize REST client with your bot's token
 const rest = new REST({ version: '9' }).setToken(token);
 
-// Register the commands with Discord
-rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commandData })
+rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
 	.then(() => console.log('Successfully registered application commands.'))
 	.catch(console.error);
+

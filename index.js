@@ -1,20 +1,25 @@
 // index.js
 const dotenv = require('dotenv');
 dotenv.config();
-const { Client, Intents, Collection } = require('discord.js');
+const { Client, GatewayIntentBits, Collection } = require('discord.js');  // Change here
 const { token } = process.env;
-const commands = require('./commands/commands');
 
 // Initialize the Discord client
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({ intents: GatewayIntentBits.Guilds });
 
-// Register commands on the bot
-
+// Initialize the commands collection
 client.commands = new Collection();
-commands.forEach(command => {
-    client.commands.set(command.name, command);
-})
 
+// Load commands dynamically from a folder
+const fs = require('fs');
+const path = require('path');
+
+const commandFiles = fs.readdirSync(path.join(__dirname, './commands')).filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+    const command = require(path.join(__dirname, './commands', file));
+    client.commands.set(command.data.name, command);
+}
 
 // Slash command interaction handler
 client.on('interactionCreate', async (interaction) => {
@@ -38,8 +43,8 @@ client.once('ready', () => {
 
 // Login the bot to Discord
 client.login(token)
-    .then(r => {
-    console.log(`Logged in as ` + client.user.username + `!`);
+    .then(() => {
+        console.log(`Logged in as ${client.user.username}!`);
     })
     .catch(e => {
         console.error(`Failed to login: ${e}`);
