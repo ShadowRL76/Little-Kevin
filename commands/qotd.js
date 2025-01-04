@@ -1,4 +1,5 @@
 ﻿const { SlashCommandBuilder } = require('@discordjs/builders');
+const {EmbedBuilder} = require("discord.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -28,7 +29,7 @@ module.exports = {
         ]
 
         const qotd_image = qotd_gifs[Math.floor(Math.random() * qotd_gifs.length)];
-        const qotd_embed = new Discord.MessageEmbed()
+        const qotd_embed = new EmbedBuilder()
             .setTitle(' It\'s life. It\'s interesting. It\'s fun. ')
             .setColor('#000000')
             .setURL('https://www.bobross.com')

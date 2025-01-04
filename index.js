@@ -1,8 +1,9 @@
-// index.js
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const { Client, GatewayIntentBits, Collection } = require('discord.js');
 dotenv.config();
-const { Client, GatewayIntentBits, Collection } = require('discord.js');  // Change here
-const { token } = process.env;
+const { TOKEN: token, CONNECTION_STRING: database } = process.env;
+
 
 // Initialize the Discord client
 const client = new Client({ intents: GatewayIntentBits.Guilds });
@@ -21,20 +22,15 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command);
 }
 
-// Slash command interaction handler
-client.on('interactionCreate', async (interaction) => {
-    if (!interaction.isCommand()) return;
+const interactionCreateHandler = require('./events/interactionCreate');
+const profileModel = require("./models/profileSchema");
 
-    const command = client.commands.get(interaction.commandName);
-    if (!command) return;
+client.on(interactionCreateHandler.name, interactionCreateHandler.execute);
 
-    try {
-        await command.execute(interaction); // Execute the command
-    } catch (error) {
-        console.error(error);
-        await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
-    }
-});
+// Connect to MongoDB
+mongoose.connect(database, {})
+    .then(() => { console.log(`Connected to database!`); })
+    .catch((err) => { console.log(err); });
 
 // When the client is ready, log it
 client.once('ready', () => {
@@ -49,3 +45,4 @@ client.login(token)
     .catch(e => {
         console.error(`Failed to login: ${e}`);
     });
+

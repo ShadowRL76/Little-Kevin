@@ -11,7 +11,9 @@
         "@discordjs/rest": "^2.2.0",
         "discord-api-types": "^0.37.76",
         "discord.js": "^14.17.2",
-        "dotenv": "^16.4.7"
+        "dotenv": "^16.4.7",
+        "mongoose": "^8.9.3",
+        "parse-ms-2": "^1.0.0"
     },
     "engines": {
         "node": "16.x"

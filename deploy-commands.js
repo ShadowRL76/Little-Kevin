@@ -13,6 +13,22 @@ const commands = [
 	new SlashCommandBuilder().setName('devitos').setDescription('We dont kink shame.'),
 	new SlashCommandBuilder().setName('ed').setDescription('Well, this is awkward.'),
 	new SlashCommandBuilder().setName('fact').setDescription('Expand your knowledge!'),
+	new SlashCommandBuilder().setName('balance').setDescription('Check balance of eggs!'),
+	new SlashCommandBuilder().setName('daily').setDescription('Redeem free eggs everyday!'),
+	new SlashCommandBuilder()
+		.setName('donate')
+		.setDescription('Donate a portion of your eggs!')
+		.addUserOption(option =>
+			option
+				.setName('user')
+				.setDescription('The user you want to donate to')
+				.setRequired(true))
+		.addIntegerOption(option =>
+			option
+				.setName('amount')
+				.setDescription('The amount of eggs you want to donate')
+				.setRequired(true)),
+	new SlashCommandBuilder().setName('leaderboard').setDescription('Show leaderboard!'),
 ]
 	.map(command => command.toJSON());
 
