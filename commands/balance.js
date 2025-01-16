@@ -4,7 +4,7 @@ require('../models/profileSchema');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('balance')
-        .setDescription('Check balance of eggs!'),
+        .setDescription('Check balance of 🌱 Seeds!'),
 
     async execute(interaction, profileData) {
         if (!profileData) {
@@ -17,6 +17,6 @@ module.exports = {
 
         const { balance } = profileData;
         const username = interaction.user.username;
-        await interaction.reply(`${username} has ${balance} eggs`);
+        await interaction.reply(`${username} has ${balance} 🌱 Seeds`);
     },
 };

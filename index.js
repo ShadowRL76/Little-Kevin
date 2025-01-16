@@ -23,8 +23,7 @@ for (const file of commandFiles) {
 }
 
 const interactionCreateHandler = require('./events/interactionCreate');
-const profileModel = require("./models/profileSchema");
-
+require("./models/profileSchema");
 client.on(interactionCreateHandler.name, interactionCreateHandler.execute);
 
 // Connect to MongoDB

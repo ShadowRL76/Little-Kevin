@@ -6,6 +6,7 @@ module.exports = {
         if (!interaction.isCommand()) return;
 
         let profileData;
+
         try {
             profileData = await profileModel.findOne({ userId: interaction.user.id });
             console.log("Query Result for findOne:", profileData);
