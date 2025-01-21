@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 dotenv.config();
-
+//testing to push to test branch
 const token = process.env.TOKEN_FILE ?
     fs.readFileSync('/run/secrets/discord_token', 'utf8').trim() :
     process.env.TOKEN;
