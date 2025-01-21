@@ -3,9 +3,8 @@ const mongoose = require('mongoose');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const path = require('path');
 
-// Read the secret files for the bot token and database connection string
-const token = fs.readFileSync('/run/secrets/my-env', 'utf8').split('\n')[0].trim(); // Assumes TOKEN is the first line
-const database = fs.readFileSync('/run/secrets/my-env', 'utf8').split('\n')[1].trim(); // Assumes CONNECTION_STRING is the second line
+const mongoUri = fs.readFileSync('/run/secrets/mongo_uri', 'utf8');
+const discordToken = fs.readFileSync('/run/secrets/discord_token', 'utf8');
 
 // Initialize the Discord client
 const client = new Client({ intents: GatewayIntentBits.Guilds });
