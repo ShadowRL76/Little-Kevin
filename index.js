@@ -7,11 +7,11 @@ const path = require('path');
 dotenv.config();
 
 const token = process.env.TOKEN_FILE ?
-    fs.readFileSync(process.env.TOKEN_FILE, 'utf8').trim() :
+    fs.readFileSync('/run/secrets/discord_token', 'utf8').trim() :
     process.env.TOKEN;
 
 const database = process.env.CONNECTION_STRING_FILE ?
-    fs.readFileSync(process.env.CONNECTION_STRING_FILE, 'utf8').trim() :
+    fs.readFileSync('/run/secrets/mongo_uri', 'utf8').trim() :
     process.env.CONNECTION_STRING;
 
 // Initialize the Discord client
