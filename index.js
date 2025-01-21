@@ -1,9 +1,11 @@
-const dotenv = require('dotenv');
+const fs = require('fs');
 const mongoose = require('mongoose');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
-dotenv.config();
-const { TOKEN: token, CONNECTION_STRING: database } = process.env;
+const path = require('path');
 
+// Read the secret files for the bot token and database connection string
+const token = fs.readFileSync('/run/secrets/my-env', 'utf8').split('\n')[0].trim(); // Assumes TOKEN is the first line
+const database = fs.readFileSync('/run/secrets/my-env', 'utf8').split('\n')[1].trim(); // Assumes CONNECTION_STRING is the second line
 
 // Initialize the Discord client
 const client = new Client({ intents: GatewayIntentBits.Guilds });
@@ -12,8 +14,6 @@ const client = new Client({ intents: GatewayIntentBits.Guilds });
 client.commands = new Collection();
 
 // Load commands dynamically from a folder
-const fs = require('fs');
-const path = require('path');
 
 const commandFiles = fs.readdirSync(path.join(__dirname, './commands')).filter(file => file.endsWith('.js'));
 
@@ -44,4 +44,3 @@ client.login(token)
     .catch(e => {
         console.error(`Failed to login: ${e}`);
     });
-
