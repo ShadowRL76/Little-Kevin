@@ -2,25 +2,23 @@ const mongoose = require('mongoose');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const dotenv = require('dotenv');
 const fs = require('fs');
+const path = require('path');
+
 dotenv.config();
 
-const token = process.env.TOKEN_FILE ? 
-  fs.readFileSync(process.env.TOKEN_FILE, 'utf8').trim() : 
-  process.env.TOKEN;
+const token = process.env.TOKEN_FILE ?
+    fs.readFileSync(process.env.TOKEN_FILE, 'utf8').trim() :
+    process.env.TOKEN;
 
-const database = process.env.CONNECTION_STRING_FILE ? 
-  fs.readFileSync(process.env.CONNECTION_STRING_FILE, 'utf8').trim() : 
-  process.env.CONNECTION_STRING;
+const database = process.env.CONNECTION_STRING_FILE ?
+    fs.readFileSync(process.env.CONNECTION_STRING_FILE, 'utf8').trim() :
+    process.env.CONNECTION_STRING;
 
 // Initialize the Discord client
 const client = new Client({ intents: GatewayIntentBits.Guilds });
 
 // Initialize the commands collection
 client.commands = new Collection();
-
-// Load commands dynamically from a folder
-const fs = require('fs');
-const path = require('path');
 
 const commandFiles = fs.readdirSync(path.join(__dirname, './commands')).filter(file => file.endsWith('.js'));
 
