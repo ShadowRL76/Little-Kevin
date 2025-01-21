@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const path = require('path');
 
-const mongoUri = process.env.MONGO_URI || '/run/secrets/mongo_uri';
-const discordToken = process.env.DISCORD_TOKEN || '/run/secrets/discord_token';
+const mongoUri = process.env.CONNECTION_STRING || '/run/secrets/mongo_uri';
+const discordToken = process.env.TOKEN || '/run/secrets/discord_token';
 
 if (!mongoUri || !discordToken) {
     console.error('Secrets are missing!');
@@ -31,7 +31,7 @@ require("./models/profileSchema");
 client.on(interactionCreateHandler.name, interactionCreateHandler.execute);
 
 // Connect to MongoDB
-mongoose.connect(database, {})
+mongoose.connect(mongoUri, {})
     .then(() => { console.log(`Connected to database!`); })
     .catch((err) => { console.log(err); });
 
@@ -41,7 +41,7 @@ client.once('ready', () => {
 });
 
 // Login the bot to Discord
-client.login(token)
+client.login(discordToken)
     .then(() => {
         console.log(`Logged in as ${client.user.username}!`);
     })
