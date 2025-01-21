@@ -3,8 +3,13 @@ const mongoose = require('mongoose');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 const path = require('path');
 
-const mongoUri = fs.readFileSync('/run/secrets/mongo_uri', 'utf8');
-const discordToken = fs.readFileSync('/run/secrets/discord_token', 'utf8');
+const mongoUri = process.env.MONGO_URI || '/run/secrets/mongo_uri';
+const discordToken = process.env.DISCORD_TOKEN || '/run/secrets/discord_token';
+
+if (!mongoUri || !discordToken) {
+    console.error('Secrets are missing!');
+    process.exit(1);
+}
 
 // Initialize the Discord client
 const client = new Client({ intents: GatewayIntentBits.Guilds });
