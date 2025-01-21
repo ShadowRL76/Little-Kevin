@@ -1,8 +1,16 @@
 const mongoose = require('mongoose');
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const dotenv = require('dotenv');
+const fs = require('fs');
+dotenv.config();
 
-// Get the environment variables passed in
-const { DISCORD_TOKEN: token, MONGO_URI: database } = process.env;
+const token = process.env.TOKEN_FILE ? 
+  fs.readFileSync(process.env.TOKEN_FILE, 'utf8').trim() : 
+  process.env.TOKEN;
+
+const database = process.env.CONNECTION_STRING_FILE ? 
+  fs.readFileSync(process.env.CONNECTION_STRING_FILE, 'utf8').trim() : 
+  process.env.CONNECTION_STRING;
 
 // Initialize the Discord client
 const client = new Client({ intents: GatewayIntentBits.Guilds });
