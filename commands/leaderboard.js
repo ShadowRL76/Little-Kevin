@@ -25,7 +25,7 @@ module.exports = {
             if (page > totalPages) {
                 return await interaction.reply({
                     content: `Invalid page number. There are only ${totalPages} pages!`,
-                    ephemeral: true
+                    flags: 64 // Equivalent to ephemeral: true
                 });
             }
 
@@ -72,7 +72,7 @@ module.exports = {
             let leaderboardText = '';
             leaderboardEntries.forEach(entry => {
                 const positionText = entry.medal || `#${entry.position}`;
-                leaderboardText += `${positionText} **${entry.name}**\n${entry.balance.toLocaleString()} Seeds 🌱 | ${entry.buds.toLocaleString()} Buds 🌿\n\n`;
+                leaderboardText += `${positionText} **${entry.name}**\n${entry.balance.toLocaleString()} Seeds 🌱 | ${entry.buds.toLocaleString()} Buds 🌳\n\n`;
             });
 
             embed.addFields({
@@ -84,16 +84,17 @@ module.exports = {
             if (userPosition > 0) {
                 embed.addFields({
                     name: 'Your Position',
-                    value: `You are ranked #${userPosition} with ${profiles[userPosition - 1].balance.toLocaleString()} Seeds 🌱 and ${profiles[userPosition - 1].buds.toLocaleString()} Buds 🌿`
+                    value: `You are ranked #${userPosition} with ${profiles[userPosition - 1].balance.toLocaleString()} Seeds 🌱 and ${profiles[userPosition - 1].buds.toLocaleString()} Buds 🌳`
                 });
             }
 
-            await interaction.reply({ embeds: [embed] });
+            await interaction.reply({ embeds: [embed], flags: 0 }); // Public reply
+
         } catch (error) {
             console.error('Error fetching leaderboard:', error);
             await interaction.reply({
                 content: 'There was an error fetching the leaderboard.',
-                ephemeral: true
+                flags: 64 // Equivalent to ephemeral: true
             });
         }
     },

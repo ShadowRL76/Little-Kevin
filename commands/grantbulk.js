@@ -27,7 +27,7 @@ module.exports = {
         if (!member || !member.roles.cache.has(requiredRoleId)) {
             return await interaction.reply({
                 content: '❌ You do not have the required role to use this command.',
-                ephemeral: true
+                flags: 64 // Equivalent to ephemeral: true
             });
         }
 
@@ -38,7 +38,7 @@ module.exports = {
         if (amount <= 0) {
             return await interaction.reply({
                 content: '❌ Amount must be positive.',
-                ephemeral: true
+                flags: 64 // Equivalent to ephemeral: true
             });
         }
 
@@ -47,7 +47,7 @@ module.exports = {
         if (!userMatches) {
             return await interaction.reply({
                 content: '❌ No valid user IDs or mentions found.',
-                ephemeral: true
+                flags: 64 // Equivalent to ephemeral: true
             });
         }
 
@@ -99,6 +99,6 @@ module.exports = {
             response += results.failed.map(id => `User ID: ${id}`).join('\n');
         }
 
-        await interaction.editReply({ content: response });
+        await interaction.editReply({ content: response, flags: 0 }); // Public reply
     }
 };

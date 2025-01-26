@@ -22,14 +22,14 @@ module.exports = {
                 .setRequired(false)),
 
     async execute(interaction) {
-        const requiredRoleId = '1298906125600821279'; // Replace with your admin role ID
+        const requiredRoleId = '1298906125600821279';
         const member = interaction.guild.members.cache.get(interaction.user.id);
 
-        // Check if user has the required role
+        // Initial role check
         if (!member || !member.roles.cache.has(requiredRoleId)) {
             return await interaction.reply({
                 content: '❌ You do not have the required role to use this command.',
-                ephemeral: true
+                flags: 64 // Equivalent to ephemeral: true (private reply)
             });
         }
 
@@ -41,38 +41,64 @@ module.exports = {
         if (amount <= 0) {
             return await interaction.reply({
                 content: '❌ The amount must be a positive number.',
-                ephemeral: true
+                flags: 64 // Equivalent to ephemeral: true
             });
         }
 
         try {
-            // Find the target profile or create one if it doesn't exist
-            let targetProfile = await profileModel.findOneAndUpdate(
-                { userId: target.id, serverId: interaction.guild.id },
-                { $inc: { balance: amount } }, // Increment seeds balance
-                { new: true, upsert: true } // Create document if it doesn't exist
+            // Use findOneAndUpdate with upsert to handle both new and existing profiles
+            const targetProfile = await profileModel.findOneAndUpdate(
+                {
+                    userId: target.id,
+                    serverId: interaction.guild.id
+                },
+                {
+                    $inc: { balance: amount },
+                    $setOnInsert: {
+                        userId: target.id,
+                        serverId: interaction.guild.id
+                    }
+                },
+                {
+                    new: true,
+                    upsert: true // Create if not exists
+                }
             );
 
-            // Reply to the interaction
-            await interaction.reply({
-                content: `✅ Successfully granted ${amount} seeds to **${target.username}**!\n📝 Reason: ${reason}\n💰 Their new seed balance: ${targetProfile.balance} seeds.`,
-                ephemeral: false
-            });
+            // Ensure the profile has been successfully updated or inserted
+            const profile = targetProfile;
 
-            // Try to DM the target user
+            // Check if interaction is already replied
+            if (!interaction.replied && !interaction.deferred) {
+                await interaction.reply({
+                    content: `✅ Successfully granted ${amount} seeds to **${target.username}**!\n📝 Reason: ${reason}\n💰 Their new seed balance: ${profile.balance} seeds.`,
+                    flags: 0 // Public reply
+                });
+            } else {
+                await interaction.followUp({
+                    content: `✅ Successfully granted ${amount} seeds to **${target.username}**!\n📝 Reason: ${reason}\n💰 Their new seed balance: ${profile.balance} seeds.`,
+                    flags: 0 // Public follow-up
+                });
+            }
+
+            // DM logic remains the same
             try {
                 await target.send(
-                    `🌱 You have been granted **${amount} seeds** by **${interaction.user.username}** in **${interaction.guild.name}**!\n📝 Reason: ${reason}\n💰 Your new seed balance: **${targetProfile.balance} seeds**.`
+                    `🌱 You have been granted **${amount} seeds** by **${interaction.user.username}** in **${interaction.guild.name}**!\n📝 Reason: ${reason}\n💰 Your new seed balance: **${profile.balance} seeds**.`
                 );
             } catch (dmError) {
                 console.warn(`Could not DM user ${target.id}: ${dmError.message}`);
             }
         } catch (error) {
             console.error('Error in grantseed command:', error);
-            await interaction.reply({
-                content: '❌ There was an error processing the seed grant.',
-                ephemeral: true
-            });
+
+            // Prevent multiple replies
+            if (!interaction.replied && !interaction.deferred) {
+                await interaction.reply({
+                    content: '❌ There was an error processing the seed grant.',
+                    flags: 64 // Equivalent to ephemeral: true
+                });
+            }
         }
     },
 };

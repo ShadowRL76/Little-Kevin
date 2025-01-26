@@ -124,7 +124,6 @@ const commands = [
 				.setDescription('Reason for granting buds')
 				.setRequired(false)),
 
-	// Admin grantseed command
 	new SlashCommandBuilder()
 		.setName('grantseed')
 		.setDescription('Admin command to grant seeds to users')
@@ -182,6 +181,64 @@ const commands = [
 				.setDescription('Reason for deducting seeds')
 				.setRequired(false)),
 
+	new SlashCommandBuilder()
+		.setName('admindashboard')
+		.setDescription('Admin dashboard and management commands'),
+
+	new SlashCommandBuilder()
+		.setName('kindness')
+		.setDescription('Perform a random act of kindness for a server member')
+		.addUserOption(option =>
+			option.setName('target')
+				.setDescription('User to receive a kind gesture')
+				.setRequired(true)),
+
+	new SlashCommandBuilder()
+		.setName('weather')
+		.setDescription('Get the current weather for a location')
+		.addStringOption(option =>
+			option.setName('location')
+				.setDescription('The location to get the weather for')
+				.setRequired(true))
+		.addStringOption(option =>
+			option.setName('visibility')
+				.setDescription('Set the visibility of the weather information')
+				.addChoices(
+					{ name: 'Public', value: 'public' },
+					{ name: 'Private', value: 'private' }
+				)
+				.setRequired(false)),
+
+	new SlashCommandBuilder()
+		.setName('opencapsule')
+		.setDescription('Open your time capsules that are ready'),
+
+	new SlashCommandBuilder()
+		.setName('timecapsule')
+		.setDescription('Send a message to yourself for the future')
+		.addStringOption(option =>
+			option.setName('message')
+				.setDescription('Your message for the future')
+				.setRequired(true))
+		.addIntegerOption(option =>
+			option.setName('time')
+				.setDescription('Set the time duration')
+				.setRequired(true))
+		.addStringOption(option =>
+			option.setName('unit')
+				.setDescription('Unit of time (minutes, hours, days, weeks, months)')
+				.setRequired(true)
+				.addChoices(
+					{ name: 'Minutes', value: 'minutes' },
+					{ name: 'Hours', value: 'hours' },
+					{ name: 'Days', value: 'days' },
+					{ name: 'Weeks', value: 'weeks' },
+					{ name: 'Months', value: 'months' }
+				))
+		.addBooleanOption(option =>
+			option.setName('public')
+				.setDescription('Should this time capsule be public when opened?')
+				.setRequired(false)),
 ];
 
 // Create REST instance

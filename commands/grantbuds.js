@@ -22,14 +22,14 @@ module.exports = {
                 .setRequired(false)),
 
     async execute(interaction) {
-        const requiredRoleId = '1298906125600821279'; // Replace with your admin role ID
+        const requiredRoleId = '1298906125600821279';
         const member = interaction.guild.members.cache.get(interaction.user.id);
 
         // Check if user has the required role
         if (!member || !member.roles.cache.has(requiredRoleId)) {
             return await interaction.reply({
                 content: '❌ You do not have the required role to use this command.',
-                ephemeral: true
+                flags: 64
             });
         }
 
@@ -41,14 +41,14 @@ module.exports = {
         if (!target) {
             return await interaction.reply({
                 content: '❌ You must specify a valid user to grant buds.',
-                ephemeral: true
+                flags: 64
             });
         }
 
         if (amount <= 0) {
             return await interaction.reply({
                 content: '❌ The amount must be a positive number.',
-                ephemeral: true
+                flags: 64
             });
         }
 
@@ -75,13 +75,13 @@ module.exports = {
             // Reply to the interaction
             await interaction.reply({
                 content: `✅ Successfully granted ${amount} buds to **${target.username}**!\n📝 Reason: ${reason}\n💰 Their new buds balance: ${targetProfile.buds} buds.`,
-                ephemeral: false
+                flags: 0
             });
 
             // Attempt to DM the target user
             try {
                 await target.send(
-                    `🌿 You have been granted **${amount} buds** by **${interaction.user.username}** in **${interaction.guild.name}**!\n📝 Reason: ${reason}\n💰 Your new buds balance: **${targetProfile.buds} buds**.`
+                    `🌳 You have been granted **${amount} buds** by **${interaction.user.username}** in **${interaction.guild.name}**!\n📝 Reason: ${reason}\n💰 Your new buds balance: **${targetProfile.buds} buds**.`
                 );
             } catch (dmError) {
                 console.warn(`Could not DM user ${target.id}: ${dmError.message}`);
@@ -93,14 +93,14 @@ module.exports = {
 
             if (logChannel) {
                 await logChannel.send({
-                    content: `🌿 **Buds Grant Log**\n👤 **Admin**: ${interaction.user.username} (${interaction.user.id})\n👥 **Target**: ${target.username} (${target.id})\n💰 **Amount**: ${amount} buds\n📝 **Reason**: ${reason}\n💰 **New Buds Balance**: ${targetProfile.buds} buds`
+                    content: `🌳 **Buds Grant Log**\n👤 **Admin**: ${interaction.user.username} (${interaction.user.id})\n👥 **Target**: ${target.username} (${target.id})\n💰 **Amount**: ${amount} buds\n📝 **Reason**: ${reason}\n💰 **New Buds Balance**: ${targetProfile.buds} buds`
                 });
             }
         } catch (error) {
             console.error('Error in grantbuds command:', error);
             await interaction.reply({
                 content: '❌ There was an error processing the buds grant.',
-                ephemeral: true
+                flags: 64
             });
         }
     },
