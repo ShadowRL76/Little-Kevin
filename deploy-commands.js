@@ -213,6 +213,10 @@ const commands = [
 		.setName('opencapsule')
 		.setDescription('Open your time capsules that are ready'),
 
+    new SlashCommandBuilder()
+		.setName('onthishistory')
+		.setDescription('Get an interesting historical fact that happened today'),
+
 	new SlashCommandBuilder()
 		.setName('timecapsule')
 		.setDescription('Send a message to yourself for the future')

@@ -24,12 +24,15 @@ const commandFiles = fs.readdirSync(path.join(__dirname, './commands')).filter(f
 
 for (const file of commandFiles) {
     const command = require(path.join(__dirname, './commands', file));
-    client.commands.set(command.data.name, command);
+    client.commands.set(command.data.name, command:);
 }
 
 const interactionCreateHandler = require('./events/interactionCreate');
 require("./models/profileSchema");
 client.on(interactionCreateHandler.name, interactionCreateHandler.execute);
+
+
+const onThisDay = require('./commands/onthisday');
 
 // Connect to MongoDB
 mongoose.connect(database, {})
