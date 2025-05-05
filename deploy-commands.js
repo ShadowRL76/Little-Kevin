@@ -7,16 +7,12 @@ const commands = [
 		.setDescription('Check to see if Little Kevin is online'),
 
 	new SlashCommandBuilder()
-		.setName('qotd')
-		.setDescription('Post Muusee\'s Question Of The Day'),
-
-	new SlashCommandBuilder()
 		.setName('fruity')
 		.setDescription('Hot potato, hot potato...'),
 
 	new SlashCommandBuilder()
 		.setName('joke')
-		.setDescription('Hear a funny jokesicle!'),
+		.setDescription('Hear a funny joke!'),
 
 	new SlashCommandBuilder()
 		.setName('snoop')
@@ -37,7 +33,7 @@ const commands = [
 	new SlashCommandBuilder()
 		.setName('fact')
 		.setDescription('Expand your knowledge!'),
-
+/*
 	new SlashCommandBuilder()
 		.setName('balance')
 		.setDescription('Check balance of eggs!'),
@@ -180,11 +176,12 @@ const commands = [
 				.setName('reason')
 				.setDescription('Reason for deducting seeds')
 				.setRequired(false)),
-
+*/
 	new SlashCommandBuilder()
 		.setName('admindashboard')
 		.setDescription('Admin dashboard and management commands'),
 
+	/*
 	new SlashCommandBuilder()
 		.setName('kindness')
 		.setDescription('Perform a random act of kindness for a server member')
@@ -192,7 +189,7 @@ const commands = [
 			option.setName('target')
 				.setDescription('User to receive a kind gesture')
 				.setRequired(true)),
-
+*/
 	new SlashCommandBuilder()
 		.setName('weather')
 		.setDescription('Get the current weather for a location')
@@ -214,8 +211,34 @@ const commands = [
 		.setDescription('Open your time capsules that are ready'),
 
     new SlashCommandBuilder()
-		.setName('onthishistory')
+		.setName('onthisday')
 		.setDescription('Get an interesting historical fact that happened today'),
+
+	new SlashCommandBuilder()
+		.setName('timer')
+		.setDescription('Set a colorful countdown timer')
+		.addIntegerOption(option =>
+			option.setName('hours')
+				.setDescription('Hours (0-24)')
+				.setMinValue(0)
+				.setMaxValue(24)
+				.setRequired(false))
+		.addIntegerOption(option =>
+			option.setName('minutes')
+				.setDescription('Minutes (0-59)')
+				.setMinValue(0)
+				.setMaxValue(59)
+				.setRequired(false))
+		.addIntegerOption(option =>
+			option.setName('seconds')
+				.setDescription('Seconds (0-59)')
+				.setMinValue(0)
+				.setMaxValue(59)
+				.setRequired(false))
+		.addStringOption(option =>
+			option.setName('label')
+				.setDescription('Timer label (optional)')
+				.setRequired(false)),
 
 	new SlashCommandBuilder()
 		.setName('timecapsule')
@@ -245,15 +268,12 @@ const commands = [
 				.setRequired(false)),
 ];
 
-// Create REST instance
 const rest = new REST().setToken(token);
 
-// Deploy commands
 (async () => {
 	try {
 		console.log('Started refreshing application (/) commands.');
 
-		// Deploy commands to the specified guild
 		await rest.put(
 			Routes.applicationGuildCommands(clientId, guildId),
 			{ body: commands }

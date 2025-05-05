@@ -1,16 +1,18 @@
-﻿FROM node:latest
+﻿FROM node:20-alpine
 
 LABEL authors="Shadow"
 
+# Install bash and git
+RUN apk update && apk add --no-cache git bash
+
+# Set workdir
 WORKDIR /usr/src/app
 
-RUN apt-get update && apt-get install -y git
-
+# Copy only the start script
 COPY start.sh /usr/src/app/start.sh
 
-COPY package*.json ./
-RUN npm install
-
+# Make it executable
 RUN chmod +x /usr/src/app/start.sh
 
-ENTRYPOINT ["/usr/src/app/start.sh"]
+# Set default command to run the start script
+CMD ["bash", "/usr/src/app/start.sh"]
